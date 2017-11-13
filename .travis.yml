@@ -13,8 +13,6 @@ before_script:
 - psql -c 'create database mentorphl_test;' -U postgres
 
 install:
-- apt-get update -qy
-- apt-get install -y python-dev python-pip
 - pip install -r requirements.txt
 - cd mentorphl/
 - python manage.py collectstatic --settings=config.settings.ci
