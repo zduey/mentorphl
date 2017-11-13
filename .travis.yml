@@ -1,0 +1,33 @@
+language: python
+
+python:
+  - '3.6'
+
+notifications:
+  email: true
+
+services:
+- postgresql
+
+before_script:
+- psql -c 'create database mentorphl_test;' -U postgres
+
+install:
+- apt-get update -qy
+- apt-get install -y python-dev python-pip
+- pip install -r requirements.txt
+- cd mentorphl/
+- python manage.py collectstatic --settings=config.settings.ci
+- coverage run --source="." manage.py test --settings=config.settings.ci
+- coverage report
+
+script:
+- pytest
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: JsgNqZ/kUGHBFOfDAVJk4L7ynj6YUaMH0kD1ID6JK1CKcGXD31JzsJCoL7KzphAVBCMGy2QHfI3Eoj9DXWAJZqtArRoJvteRCSl1lPTQ08RXk+gXDL1ieCwpx2vKoR9OA16VKPmJOEAEBjVIKWfZEeXuP216I2NXpTjaua/zolCOwD5Jqfcy5bX4ztgeUA4eOti+8tyvzkJLeTwMJe8CqTxkDBr1QMap9wLbNaTGoGEX43hzuMp0UbGwUVzjmcENbvUB/4zFB57/gsB0HW4uIyFtz337QsYJxIn/tDtQZ76oeg6MBP3l58374mFiZTKvon1JOZscmkOb4eTwKHAOHjkamM8xuK2I6d3nOY8aasQAu7l1E1NPURGBCHzcHLkmx9JwZlinoPLBI3JggYVJN6Wz8wouKoEJ6Kln4MhQN5wGS7G/nB0cEP0n2ITMB8amgF7KbCUyia686T08u41i2gkkq1PWWEp5YqgepRh3i0zvrHkg/h62r3ICdW2a5jVAu2OneB/xlzag8kxm4Ep0jCRTD/gAjh0MKECmJgVkR0TSX+XIPeE0VgOQQ/WwDMWUY+QsR2/L3ado81oCbv87yDn+WEZXWwmoW2O3s1+D7NFCgWI3z+nhXE+N55CPRDUXEuDjgY4Asw4N4APD2aJiNyLbcDLVWSHEWnYuPaXBpw8=
+  app: mentorphilly
+  on:
+    repo: zduey/mentorphl
