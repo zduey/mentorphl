@@ -10,7 +10,6 @@ from .forms import SignUpForm
 class UserLoginView(auth_views.LoginView):
     template_name = "accounts/login.html"
 
-
 class UserLogoutView(auth_views.LogoutView):
     next_page = "home"
 
@@ -26,7 +25,7 @@ class UserSignupView(View):
         if form.is_valid():
             user = form.save()
             auth_login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-            return redirect('mentors:home')
+            return redirect('home')
         else:
             form = SignUpForm()
         return render(request, self.template_name, {'form': form})
