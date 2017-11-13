@@ -33,7 +33,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
-    'mentors.apps.MentorsConfig',
+    'profiles.apps.ProfilesConfig',
+    'matchmaker.apps.MatchmakerConfig',
     'widget_tweaks',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -122,5 +123,5 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = join(BASE_DIR, "media")
 
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = "/mentors/"
+LOGIN_REDIRECT_URL = "/"
 
