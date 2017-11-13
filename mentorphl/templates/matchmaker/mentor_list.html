@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h2>Available Mentors</h2>
+  <div class="row">
+    <div class="card-deck"></div>
+      {% for mentor in object_list %}
+        {% if mentor.complete %}
+          <div class="card text-center" style="width: 20rem;">
+            <img class="card-img-top" src="{{ mentor.thumbnail.url }}" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">{{ mentor.name }}</h4>
+  	          <p class="card-text">{{ mentor.description}}</p>
+              <a href="{% url 'mentor:view' mentor.pk %}" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  </div>
+{% endblock %}
