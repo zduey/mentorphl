@@ -1,21 +1,38 @@
-# Welcome to MentorPHL -- A Service for Matching Volunteers with People in Transition
+# Web Applicatoin for the [MentorPhilly](https://www.mentorphilly.com)
 
-This project began with the PowerUp Reentry: A Digital Solutions Day. The purpose of the site is
-to match individuals willing to serve as mentors with individuals who would benefit from multiple
-sources of support.
 
 ## Getting Started
-The project currently uses Django. To get started, clone this repostiory and install the necessary
-dependencies:
+The project currently uses the python-base Django web framework. 
+We recommended installing the latest version of [anaconda](https://www.anaconda.com/download/)
+and using conda environments for package management.
+
+Create a fresh environment for the project
+
+```
+conda create -n mentorphilly
+source activate mentorphilly
+```
+
+Next, clone the repository and use the provided requirements.txt file to install the necessary
+dependencies.
+
 ```
 git clone https://github.com/zduey/mentorphl.git
 pip install -r requirements.txt
 ```
 
-To run the webserve locally,
+The first time you run the website locally, you will need to prepare the database tables:
+
 ```
-python manage.py runserver --settings=config.settings.local
+python manage.py migrate
 ```
 
-By default, the website will start serving on port 8000.
+Now (and all subsequent timess), you can run the webserver locally:
+
+```
+python manage.py runserver
+```
+
+By default, the website will start serving on port 8000. Navigate to localhost:8000 in your
+favorite browser and play around.
 
