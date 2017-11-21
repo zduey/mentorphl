@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'matchmaker.apps.MatchmakerConfig',
     'widget_tweaks',
     'stdimage',
+    'django_pydenticon',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

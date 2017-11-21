@@ -10,5 +10,6 @@
   <a href="{{ mentor.thumbnail.medium.url }}"><img alt="" src="{{ mentor.thumbnail.medium.url }}"/></a>
   <a href="{{ mentor.thumbnail.medium.url }}"><img alt="" src="{{ mentor.thumbnail.thumbnail.url }}"/></a>
   <a href="{{ mentor.thumbnail.micro.url }}"><img alt="" src="{{ mentor.thumbnail.micro.url }}"/></a>
+  <img src="{% url 'django_pydenticon:image' mentor.description%}?w=300&h=300"/>
 
 {% endblock %}
