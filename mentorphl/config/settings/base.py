@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'profiles.apps.ProfilesConfig',
     'matchmaker.apps.MatchmakerConfig',
     'widget_tweaks',
+    'stdimage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

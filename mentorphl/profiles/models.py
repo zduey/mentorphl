@@ -5,6 +5,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
+from stdimage.models import StdImageField
 
 
 class Profile(models.Model):
@@ -21,7 +22,13 @@ class Profile(models.Model):
     user_type = models.CharField(max_length=64, choices=PROFILE_CHOICES)
     name = models.CharField(max_length=256)
     description = models.CharField(max_length=256)
-    thumbnail = models.ImageField(upload_to='thumbnails')
+    thumbnail = StdImageField(upload_to='thumbnails', 
+                              blank=True,
+                              variations = {'large': (600, 600), 
+                                            'medium': (300, 300),
+                                            'thumbnail': (100, 100),
+                                            'micro': (30, 30)}
+                             )
     complete = models.BooleanField(default=False, editable=False)
 
     def is_live(self):

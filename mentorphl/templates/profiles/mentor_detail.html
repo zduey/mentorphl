@@ -2,9 +2,13 @@
 {% load static %}
 
 {% block content %}
-  <h2>Mentor</h2>
   <ul>
     <li>{{ mentor.name }}</li>
-    <li> {{ mentor.description}}</li>
+    <li>{{ mentor.description }}</li>
   </ul>
+  <a href="{{ mentor.thumbnail.large.url }}"><img alt="" src="{{ mentor.thumbnail.large.url }}"/></a>
+  <a href="{{ mentor.thumbnail.medium.url }}"><img alt="" src="{{ mentor.thumbnail.medium.url }}"/></a>
+  <a href="{{ mentor.thumbnail.medium.url }}"><img alt="" src="{{ mentor.thumbnail.thumbnail.url }}"/></a>
+  <a href="{{ mentor.thumbnail.micro.url }}"><img alt="" src="{{ mentor.thumbnail.micro.url }}"/></a>
+
 {% endblock %}
