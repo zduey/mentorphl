@@ -12,7 +12,7 @@ mentor_fields = ['name', 'description', 'thumbnail', 'specialty']
 class ViewMentorProfile(LoginRequiredMixin, DetailView):
     model = Mentor
     template_name = 'profiles/mentor_detail.html'
-    context_object_name = 'profile'
+    context_object_name = 'mentor'
     # If mentor does not exist, redirect to add?
 
 
