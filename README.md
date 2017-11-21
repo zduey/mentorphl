@@ -1,4 +1,4 @@
-# Web Applicatoin for the [MentorPhilly](https://www.mentorphilly.com)
+# Web Applicatoin for [MentorPhilly](www.mentorphilly.com)
 
 
 ## Getting Started
