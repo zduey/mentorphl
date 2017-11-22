@@ -6,7 +6,9 @@ coverage==4.4.1
 Django==1.11.5
 django-celery-results==1.0.1
 django-guardian==1.4.9
+django-pydenticon==0.2
 django-rest-framework==0.1.0
+django-stdimage==3.0.0
 django-widget-tweaks==1.4.1
 djangorestframework==3.6.4
 gunicorn==19.7.1
@@ -16,8 +18,11 @@ olefile==0.44
 pandas==0.20.3
 patsy==0.4.1
 Pillow==4.2.1
+progressbar2==3.34.3
 psycopg2==2.7.3.1
+pydenticon==0.3.1
 python-dateutil==2.6.1
+python-utils==2.2.0
 pytz==2017.2
 scipy==0.19.1
 six==1.10.0
