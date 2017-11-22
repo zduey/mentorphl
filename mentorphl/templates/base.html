@@ -33,6 +33,8 @@
                 <a class="dropdown-item" href="{% url 'profiles:update' user.pk %}">Edit Profile</a>
                 <a class="dropdown-item" href="{% url 'accounts:password_change' %}">Change Password</a>
                 <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'matchmaker:mentors' %}">Mentors</a>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{% url 'accounts:logout' %}">Log out</a>
               </div>
             </li>
