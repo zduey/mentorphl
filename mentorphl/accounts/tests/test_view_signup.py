@@ -26,10 +26,10 @@ class SignUpTests(TestCase):
     def test_form_inputs(self):
         '''
         The view must contain five inputs: csrf, username, email,
-        password1, password2
+        phone number, password1, password2
         '''
-        self.assertContains(self.response, '<input', 5)
-        self.assertContains(self.response, 'type="text"', 2)
+        self.assertContains(self.response, '<input', 6)
+        self.assertContains(self.response, 'type="text"', 3)
         self.assertContains(self.response, 'type="password"', 2)
 
 
@@ -39,11 +39,12 @@ class SuccessfulSignUpTests(TestCase):
         data = {
             'username': 'john',
             'email': 'john@john.com',
+            'phone_number': '1234567890',
             'password1': 'abcdef123456',
             'password2': 'abcdef123456'
         }
         self.response = self.client.post(url, data)
-        self.home_url = reverse('recipes:home')
+        self.home_url = reverse('home')
 
     def test_redirection(self):
         '''
