@@ -16,8 +16,6 @@ install:
 - pip install -r requirements.txt
 - cd mentorphl/
 - python manage.py collectstatic --settings=config.settings.ci
-- coverage run --source="." manage.py test --settings=config.settings.ci
-- coverage report
 script:
 - python manage.py test
 deploy:
