@@ -11,7 +11,7 @@ env:
   matrix:
     secure: UPZsw+X1XHc/uUTXKMhOKnzfoE4gefRzS6UlqRsCnQ7/3SfRZ4QWjBeQWkX70BSuOEqe1AOg6JEy8aKnzN2qlvyG2nUNtOgOwb7jC2v0iSLifi1D8zCZSJl34JmLGkX5WmQh9eJzrPDViAAg/tlw9ArgW0ArMCEG6tiCqlXLl4Oj+g6i4OJKEDQ3exXr29jERiRG01TBDnjLTvi4H96lytk5EglPuG/6rN1vKms0HdMJTvFBXpSpGPeWYPsU9zM2qod4bYx3kFk2ryizLWO/hT5KThi6of6QomMGmm36xDRL76s85i/Km92P5fCjKGArL4tgirelNjopJm/D6dzbpV/DhGqoYSIK3aJ/GUy/EB9kyuz5oBTVYzKwwzbThIWGN68vxUEE0n8aaYX/sFM888oyCIfICPTw8sdVHkBJxRByLin0IjNRiy6azzwwRecV6D7PLGxzIjNkYFvadDwmCEQbmNGIRts+s4RF7g/bk7AJcwtHgOdGgPOjTer8k1++fVRHDY0IyPWF1yYUjuX124EnVw9dpWpF8gqbcPP86HM+nCv2KtT63o2uANiaal3IOn4t4rZMVhQqzsVdglipMTkX8wa8peTypg+enowrqykXFeS8GGYX7/6+Ys+dnSU4Eoi46v4hT3dltBmQYvT1Yu3C5B79XonyyoHVflyiEtc=
 before_script:
-- psql -c 'create database mentorphl_test;' -U postgres
+- psql -c "create database travisci;" -U postgres
 install:
 - pip install -r requirements.txt
 - cd mentorphl/
@@ -19,7 +19,7 @@ install:
 - coverage run --source="." manage.py test --settings=config.settings.ci
 - coverage report
 script:
-- pytest
+- python manage.py test
 deploy:
   provider: heroku
   api_key:
