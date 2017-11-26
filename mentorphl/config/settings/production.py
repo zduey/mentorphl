@@ -5,7 +5,7 @@ DEBUG = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mentorphl',
+        'NAME': 'mentorphilly',
         'USER': os.environ.get('DB_USERNAME'),
         'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': '',
