@@ -1,10 +1,20 @@
-import dj_database_url
 from .base import *
 
 DEBUG = False
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES = {}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mentorphilly',
+        'USER': os.environ.get('DB_USERNAME'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
+DATABASES['default'] = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
